@@ -119,7 +119,7 @@ namespace socialmedia
                                         P.GetLikes().Add(b);
                                     } 
                                 }
-                                /*if (postData[3] != "") // for now we don't use it cz we are assigning the same event handler in the profile and in the home button when showing posts
+                                if (postData[3] != "") // for now we don't use it cz we are assigning the same event handler in the profile and in the home button when showing posts
                                 {
                                     string[] comments = postData[2].Split('>');
                                     foreach (string com in comments)
@@ -130,7 +130,7 @@ namespace socialmedia
                                             P.Getcomments()[b] = new List<string>();
                                         P.Getcomments()[b].Add(com);
                                     }
-                                }*/
+                                }
                                 activeUser.GetPosts().Add(P);
                             }
 
@@ -190,8 +190,6 @@ namespace socialmedia
         {
             FriendsPanel uc = new FriendsPanel();
             // imp
-            string path = "UsersInfo.txt";
-            string[] lines = File.ReadAllLines(path);
             int yOffset = 50;
 
             if ( activeUser.GetRequest().Count != 0 )
@@ -572,6 +570,7 @@ namespace socialmedia
                 {
                     MessageBox.Show(ex.Message);
                 }
+                HomeButton.PerformClick();
             }
         } 
 
